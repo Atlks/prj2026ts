@@ -1,4 +1,5 @@
-import express from "express";
+//import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import { handleOptionsReq, regMap } from "./rest/restUti.ts";
 import { aopFltr } from "./rest/AopIntr.ts";
 const app = express();
@@ -13,19 +14,28 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
+// 假设有一个 Map<string, Function> 映射路径到处理函数
+const pathMthMap = new Map<string, (req: Request, res: Response) => void>();
+
+// pathMthMap = new Map<string, () => void>();
 /**
  * 
  * @param req 
  * @param res 
  * @returns 
  */
-function hdlAllReqFun(req: any, res: any) {
+function hdlAllReqFun(req: Request, res: Response) {
   
 
-  var path=req.getPath()
-   var method = pathMthMap.get(path);
-        
-            registerMapping(path, method, req,res);
+ const path = req.path; // Express 提供的标准属性
+    const methodFn = pathMthMap.get(path);
+           
+
+             if (methodFn) {
+        registerMapping(path, methodFn, req,res);
+    } else {
+        res.status(404).send("Not found");
+    }
            
 
   //regMap(path,)
