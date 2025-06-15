@@ -123,8 +123,8 @@ function closeConns() {
 
 
 
-function callInTx(arg0: (em: any) => void) {
+function callInTx(fun1: (em: any) => void) {
     console.log("fun call in tx")
-    arg0.apply(null)
+    fun1("")
 }
 
