@@ -1,20 +1,29 @@
 {
+  /**
+  纯 TS 项目，强类型、ESM、null safe、不输出 JS
+  **/
+
   "compilerOptions": {
+
+      "target": "ES2022",                           // ✅ 更现代的目标版本，支持最新语法
+    "module": "NodeNext",                         // ✅ 用于支持 ESM + Node
+    "moduleResolution": "NodeNext",               // ✅ ESM 的必备配置
+
      "strict": true,
-       "esModuleInterop": true,
-       "allowImportingTsExtensions": true,
+       "esModuleInterop": true,               // ✅ 保留，提升 CommonJS 模块兼容性（如 express）
+       "allowImportingTsExtensions": true,  
        
    "noEmit": true,
-       "noEmitOnError": true,
+       "noEmitOnError": true,   // ✅ 有错误不生成文件（虽然配合 noEmit 没有意义，但不冲突）
     
   
-    "target": "es2020",
    
-    "allowSyntheticDefaultImports": true,
+   
+    "allowSyntheticDefaultImports": true,    // ✅ 保留，用于 `import x from 'cjs'`
  
-     "moduleResolution": "NodeNext",
-    "module": "NodeNext",   
-      "forceConsistentCasingInFileNames": true                 // 👈 必须！启用 ES 模块支持
-         // 👈 支持 `assert { typ
+     
+    
+      "forceConsistentCasingInFileNames": true  ,               
+      "resolveJsonModule": true
   }
 }
