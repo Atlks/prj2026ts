@@ -5,9 +5,13 @@
        "allowImportingTsExtensions": true,
        
    "noEmit": true,
- 
+  
+    "target": "es2020",
    
-    "module": "ESNext",   
+    "allowSyntheticDefaultImports": true,
+ 
+     "moduleResolution": "NodeNext",
+    "module": "NodeNext",   
       "forceConsistentCasingInFileNames": true                 // 👈 必须！启用 ES 模块支持
          // 👈 支持 `assert { typ
   }
