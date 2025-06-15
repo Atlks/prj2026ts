@@ -1,15 +1,17 @@
 import express from "express";
-import { handleOptionsReq } from "./rest/restUti.ts";
+import { handleOptionsReq, regMap } from "./rest/restUti.ts";
+import { aopFltr } from "./rest/AopIntr.ts";
 const app = express();
 const port = 3000; // 你可以自定义端口
 
+
+// 中间件：拦截所有请求
+app.use(aopFltr)
 app.get("/", hdlAllReqFun);
 app.options("/", handleOptionsReq)
-
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
 
 /**
  * 
@@ -18,32 +20,15 @@ app.listen(port, () => {
  * @returns 
  */
 function hdlAllReqFun(req: any, res: any) {
+  
 
-  // setContextThrd(exchange);
+  var path=req.getPath()
+   var method = pathMthMap.get(path);
+        
+            registerMapping(path, method, req,res);
+           
 
-  try {
-    //---------blk chk auth
-    urlAuthChk();
-
-    //============aop trans begn
-    callInTx( (em:any) => {
-      // hdl
-      handlexProcess();
-    });
-    //  System.out.println("✅endfun handle()");
-    return;
-
-  } catch (e8) {
-    // transactionThreadLocal.get().rollback();
-    rollbackTx();
-    exHdlr(e8)
-
-  } finally {
-    closeConns()
-  }
-  //end catch
-
-
+  //regMap(path,)
   // const { uname, pwd } = req.query;
   // //get dto
   // if (!uname || !pwd) {
@@ -56,75 +41,7 @@ function hdlAllReqFun(req: any, res: any) {
   // res.json({ message: "登录成功", username: uname });
 
 }
-
-function urlAuthChk() { }
-function beginx() {
-  throw new Error("Function not implemented.");
-}
-
-function urlAuthChkV2(exchange: any) {
-  throw new Error("Function not implemented.");
-}
-
-function needLoginUserAuth(target: any) {
-  throw new Error("Function not implemented.");
-}
-
-function getCurrentUser(): any {
-  throw new Error("Function not implemented.");
-}
-
-function handlexProcess() {
-  throw new Error("Function not implemented.");
-}
-
-function commitx() {
-  throw new Error("Function not implemented.");
-}
-
-function rollbackTx() {
-  throw new Error("Function not implemented.");
-}
-
-function printStackTrace(e8: any) {
-  throw new Error("Function not implemented.");
-}
-
-function getRawEx(e8: any): any {
-  throw new Error("Function not implemented.");
-}
-
-function getExceptionObjFrmE(e: any): any {
-  throw new Error("Function not implemented.");
-}
-
-function addInfo2ex(ex: any, e: any) {
-  throw new Error("Function not implemented.");
-}
-
-function createErrResponseWzErrcode(ex: any): any {
-  throw new Error("Function not implemented.");
-}
-
-function encodeJson4ex(errResponseWzErrcode: any): any {
-  throw new Error("Function not implemented.");
-}
-
-function wrtRespErr(exchange: any, responseTxt: any) {
-  throw new Error("Function not implemented.");
-}
-
-function exHdlr(e8: any) {
-  throw new Error("Function not implemented.");
-}
-
-function closeConns() {
-  throw new Error("Function not implemented.");
-}
-
- 
-
-function callInTx(arg0: (em: any) => void) {
+function registerMapping(path: any, method: any, req: any, res: any) {
   throw new Error("Function not implemented.");
 }
 
