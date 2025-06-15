@@ -23,8 +23,7 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-// 假设有一个 Map<string, Function> 映射路径到处理函数
-const pathMthMap = new Map<string, (req: Request, res: Response) => void>();
+
 
 // pathMthMap = new Map<string, () => void>();
 /**
@@ -36,16 +35,16 @@ const pathMthMap = new Map<string, (req: Request, res: Response) => void>();
 function hdlAllReqFun(req: Request, res: Response) {
   
 
-  console.log("fun hdlall")
- const path = req.path; // Express 提供的标准属性
-    const methodFn = pathMthMap.get(path);
+  console.log("fun hdlallxx")
+//  const path = req.path; // Express 提供的标准属性
+//     const methodFn = pathMthMap.get(path);
            
 
-             if (methodFn) {
-        registerMapping(path, methodFn, req,res);
-    } else {
-        res.status(404).send("Not found");
-    }
+//              if (methodFn) {
+//         registerMapping(path, methodFn, req,res);
+//     } else {
+//         res.status(404).send("Not found");
+//     }
            
 
   //regMap(path,)

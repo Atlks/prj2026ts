@@ -4,7 +4,7 @@
        "esModuleInterop": true,
        "allowImportingTsExtensions": true,
        
- 
+   "noEmit": true,
  
    
     "module": "ESNext",                    // 👈 必须！启用 ES 模块支持

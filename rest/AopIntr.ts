@@ -28,7 +28,8 @@ export function aopFltr(req: Request, res: Response, next: NextFunction)
   //end catch
 
 }
-
+// 假设有一个 Map<string, Function> 映射路径到处理函数
+const pathMthMap = new Map<string, (req: Request, res: Response) => void>();
 function hdlAllReqFun(req: Request, res: Response) {
   
 
@@ -43,6 +44,11 @@ function hdlAllReqFun(req: Request, res: Response) {
         res.status(404).send("Not found");
     }
 }
+
+function registerMapping(path: any, method: any, req: any, res: any) {
+    console.log("fun regmap ,path="+path)
+}
+
 
 function urlAuthChk() { }
 function beginx() {
