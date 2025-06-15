@@ -19,7 +19,7 @@
   
    
    
-    "allowSyntheticDefaultImports": true,    // ✅ 保留，用于 `import x from 'cjs'`
+    "allowSyntheticDefaultImports": true,    // ✅ 保留，用于 `import x from 'cjs'`  为什么了兼容 exprs 等cmd 模块
  
      
     
