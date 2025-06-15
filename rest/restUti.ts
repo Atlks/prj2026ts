@@ -1,4 +1,24 @@
+import { Request, Response, NextFunction } from "express";
 
+/**
+ * 设置跨域响应头（中间件）
+ */ 
+  export function  handleOptionsReq(req: Request, res: Response)   {
+        setCrossDomain(req,res);
+          res.header("Allow", "GET, POST, PUT, DELETE, OPTIONS");
+        res.sendStatus(204); // No Content
+    }
+
+
+     /**
+ * 设置跨域响应头（中间件）
+ */
+export function setCrossDomain(req: Request, res: Response): void {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+}
 
 /**
  * 
