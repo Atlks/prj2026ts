@@ -1,0 +1,15 @@
+"files.watcherExclude": {
+  "**/.git/objects/**": true,
+  "**/node_modules/**": true,
+  "**/.hg/store/**": true
+}
+,
+"search.exclude": {
+  "**/node_modules/**": true,
+  "**/build/**": true,
+  "**/dist/**": true
+}
+,
+
+"workbench.editor.limit.enabled": true,
+"workbench.editor.limit.value": 10
