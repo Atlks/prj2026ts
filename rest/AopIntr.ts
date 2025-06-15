@@ -1,13 +1,21 @@
 
 import express from 'express';
 import type { Request, Response, NextFunction } from 'express';
+import { handleOptionsReq, regMap } from "./restUti.ts";
+
+import { callInTransaction } from "./TxMng.ts";
+import { FunContext } from "../model/FunContext.ts";
+
+
+
 export function aopFltr(req: Request, res: Response, next: NextFunction) {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     // setContextThrd(exchange);
 
     if (req.method === 'OPTIONS') {
-        //  handleOptionsReq(req,res)
-        return next(); // 放行 OPTIONS 请求，不拦截
+      handleOptionsReq(req,res)
+      return;
+       // return next(); // 放行 OPTIONS 请求，不拦截
     }
 
 
@@ -16,7 +24,7 @@ export function aopFltr(req: Request, res: Response, next: NextFunction) {
         urlAuthChk();
 
         //============aop trans begn
-        callInTx((em: any) => {
+        callInTransaction((em: any,ctx:FunContext):any => {
             // hdl
             // next(); // 放行到下一个中间件或路由
             registerMappingAllpath(req, res)
@@ -56,6 +64,9 @@ function registerMapping(path: any, method: any, req: any, res: any) {
 }
 
 
+/**
+ * jwt chk
+ */
 function urlAuthChk() { }
 function beginx() {
     throw new Error("Function not implemented.");
@@ -117,6 +128,9 @@ function exHdlr(e8: any) {
     console.log(e8)
 }
 
+/**
+ * http ,db conn
+ */
 function closeConns() {
     console.log("fun cls conn")
 }
