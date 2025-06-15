@@ -5,6 +5,8 @@
        "allowImportingTsExtensions": true,
        
    "noEmit": true,
+       "noEmitOnError": true,
+    
   
     "target": "es2020",
    

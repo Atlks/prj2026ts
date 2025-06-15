@@ -15,7 +15,7 @@ persist(tx)
  *  直接同步方法，写入文件，保存为json格式
  * @param tx 
  */
-export   function persist(tx: Transaction) {
+export   function persist(tx: any) {
  
   if (!tx.transactionId) {
     throw new Error("Transaction must have a transactionId");
