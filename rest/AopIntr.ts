@@ -25,8 +25,7 @@ export function aopFltr(req: Request, res: Response, next: NextFunction) {
 
         //============aop trans begn
         callInTransaction((em: any,ctx:FunContext):any => {
-            // hdl
-            // next(); // 放行到下一个中间件或路由
+            // hdl            
             registerMappingAllpath(req, res)
         });
         //  System.out.println("✅endfun handle()");
