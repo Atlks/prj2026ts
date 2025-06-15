@@ -2,6 +2,12 @@
   "compilerOptions": {
      "strict": true,
        "esModuleInterop": true,
-       "allowImportingTsExtensions": true
+       "allowImportingTsExtensions": true,
+       
+ 
+ 
+   
+    "module": "ESNext",                    // 👈 必须！启用 ES 模块支持
+         // 👈 支持 `assert { typ
   }
 }

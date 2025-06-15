@@ -1,5 +1,6 @@
 
-import express, { Request, Response, NextFunction } from "express";
+import express from 'express';
+import type { Request, Response, NextFunction } from 'express';
 export function aopFltr(req: Request, res: Response, next: NextFunction)
 {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
@@ -11,7 +12,8 @@ export function aopFltr(req: Request, res: Response, next: NextFunction)
     //============aop trans begn
     callInTx( (em:any) => {
       // hdl
-     next(); // 放行到下一个中间件或路由
+    // next(); // 放行到下一个中间件或路由
+    hdlAllReqFun(req,res)
     });
     //  System.out.println("✅endfun handle()");
     return;
@@ -27,6 +29,20 @@ export function aopFltr(req: Request, res: Response, next: NextFunction)
 
 }
 
+function hdlAllReqFun(req: Request, res: Response) {
+  
+
+  console.log("fun hdlall")
+ const path = req.path; // Express 提供的标准属性
+    const methodFn = pathMthMap.get(path);
+           
+
+             if (methodFn) {
+        registerMapping(path, methodFn, req,res);
+    } else {
+        res.status(404).send("Not found");
+    }
+}
 
 function urlAuthChk() { }
 function beginx() {
@@ -86,16 +102,17 @@ function wrtRespErr(exchange: any, responseTxt: any) {
 }
 
 function exHdlr(e8: any) {
-  throw new Error("Function not implemented.");
+  console.log(e8)
 }
 
 function closeConns() {
-  throw new Error("Function not implemented.");
+  console.log("fun cls conn")
 }
 
  
 
 function callInTx(arg0: (em: any) => void) {
-  throw new Error("Function not implemented.");
+   console.log("fun call in tx")
+   arg0.apply(null)
 }
 

@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction } from "express";
+import express from 'express';
+import type { Request, Response, NextFunction } from 'express';
 
 /**
  * 设置跨域响应头（中间件）
