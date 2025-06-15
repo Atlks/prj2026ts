@@ -7,7 +7,8 @@
    "noEmit": true,
  
    
-    "module": "ESNext",                    // 👈 必须！启用 ES 模块支持
+    "module": "ESNext",   
+      "forceConsistentCasingInFileNames": true                 // 👈 必须！启用 ES 模块支持
          // 👈 支持 `assert { typ
   }
 }
