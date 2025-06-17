@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "@prisma/client": "^6.10.0",
     "express": "^5.1.0",
     "fastify": "^5.4.0",
     "lowdb": "^7.0.1",
-    "spel2js": "^0.2.8"
+    "prisma": "^6.10.0",
+    "spel2js": "^0.2.8",
+    "typeorm": "^0.3.24"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
