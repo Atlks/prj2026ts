@@ -3,7 +3,16 @@
   纯 TS 项目，强类型、ESM、null safe、不输出 JS
   **/
 
+    "ts-node": {
+    "esm": true
+  }
+
+,
+
   "compilerOptions": {
+      "moduleDetection": "force",
+
+
 
       "target": "ES2022",                           // ✅ 更现代的目标版本，支持最新语法
     "module": "NodeNext",                         // ✅ 用于支持 ESM + Node
