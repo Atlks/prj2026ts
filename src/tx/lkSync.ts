@@ -12,10 +12,11 @@ if (fs.existsSync(dbFile)) {
 }
 
 // 获取或创建集合
-const users = db.getCollection('users') || db.addCollection('users');
+const users = db.getCollection('users') || 
+db.addCollection('users', { indices: ['age']});
 
 // 插入数据
-users.insert({ name: 'Alice2', age: 30 });
+users.insert({ name: 'Alice8', age: 8 });
 
 // 查询数据
 console.log(users.find({ age: { $gt: 20 } }));

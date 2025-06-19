@@ -5,26 +5,46 @@
       "name": "users",
       "data": [
         {
-          "name": "Alice3",
-          "age": 30,
-          "meta": { "revision": 0, "created": 1750353944033, "version": 0 },
+          "name": "Alice2",
+          "age": 20,
+          "meta": { "revision": 0, "created": 1750354490002, "version": 0 },
           "$loki": 1
         },
         {
-          "name": "Alice",
-          "age": 30,
-          "meta": { "revision": 0, "created": 1750354243087, "version": 0 },
+          "name": "Alice1",
+          "age": 22,
+          "meta": { "revision": 0, "created": 1750354565867, "version": 0 },
           "$loki": 2
         },
         {
-          "name": "Alice2",
-          "age": 30,
-          "meta": { "revision": 0, "created": 1750354276301, "version": 0 },
+          "name": "Alice3",
+          "age": 33,
+          "meta": { "revision": 0, "created": 1750354585283, "version": 0 },
           "$loki": 3
+        },
+        {
+          "name": "Alice6",
+          "age": 66,
+          "meta": { "revision": 0, "created": 1750354603609, "version": 0 },
+          "$loki": 4
+        },
+        {
+          "name": "Alice7",
+          "age": 77,
+          "meta": { "revision": 0, "created": 1750354685260, "version": 0 },
+          "$loki": 5
+        },
+        {
+          "name": "Alice8",
+          "age": 8,
+          "meta": { "revision": 0, "created": 1750354751405, "version": 0 },
+          "$loki": 6
         }
       ],
       "idIndex": null,
-      "binaryIndices": {},
+      "binaryIndices": {
+        "age": { "name": "age", "dirty": false, "values": [5, 1, 0, 2, 3, 4] }
+      },
       "constraints": null,
       "uniqueNames": [],
       "transforms": {},
@@ -45,7 +65,7 @@
       "serializableIndices": true,
       "disableFreeze": true,
       "ttl": null,
-      "maxId": 3,
+      "maxId": 6,
       "DynamicViews": [],
       "events": {
         "insert": [],
